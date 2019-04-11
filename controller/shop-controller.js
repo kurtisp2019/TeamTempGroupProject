@@ -1,5 +1,0 @@
-/**
- * 
- *      shop-controller.js
- * 
- */
