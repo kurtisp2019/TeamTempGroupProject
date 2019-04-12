@@ -97,6 +97,7 @@ function updateItem(_attributeObj, _id) {
 function deleteItem(_id) {
     db.Store.destroy({ where: {id: _id}}).then(function (_data) {
         console.log("delete success.");
+
     });
 }
 
