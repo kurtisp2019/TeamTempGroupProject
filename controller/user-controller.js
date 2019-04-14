@@ -1,6 +1,6 @@
 /**
  * 
- *      store-controller.js
+ *      user-controller.js
  * 
  */
 
@@ -12,12 +12,12 @@ var db = require("../model");
 /*                                                                 */
 /*      paramaters: _callBack                                      */
 /*                                                                 */
-/*      purpose: Select all the items in the store                 */
+/*      purpose: Select all the users                              */
 /*                                                                 */
 /*******************************************************************/
 function selectAll(_callBack) {
 
-    db.Store.findAll().then(function (_data) {
+    db.User.findAll().then(function (_data) {
 
         _callBack(_data);
     });
@@ -30,13 +30,33 @@ function selectAll(_callBack) {
 /*                                                                 */
 /*      paramaters: _condition, _callBack                          */
 /*                                                                 */
-/*      purpose: Select one of the items in the store by a         */
-/*               specified condition ( id: _id, name: _name)       */
+/*      purpose: Select one of the users by a  specified           */
+/*               condition ( id: _id, name: _name)                 */
 /*                                                                 */
 /*******************************************************************/
 function selectOne(_condition, _callBack) {
 
-    db.Store.findAll({
+    db.User.findAll({
+        where: _condition
+    }).then(function (_data) {
+
+        _callBack(_data);
+    });
+}
+
+/*******************************************************************/
+/*                                                                 */
+/*      function: selectUserShoppingCart                           */
+/*                                                                 */
+/*      paramaters: _condition, _callBack                          */
+/*                                                                 */
+/*      purpose: Select one of the users by a  specified           */
+/*               condition ( id: _id, name: _name)                 */
+/*                                                                 */
+/*******************************************************************/
+function selectUserShoppingCart(_condition, _callBack) {
+
+    db.User.findAll({ include: [{model: ShoppingCart}]},{
         where: _condition
     }).then(function (_data) {
 
@@ -50,7 +70,7 @@ function selectOne(_condition, _callBack) {
 /*                                                                       */
 /*      paramaters: _attributeObj, _id                                   */
 /*                                                                       */
-/*      purpose: Update an item in the stores by the attributeObj        */
+/*      purpose: Update a user in the stores by the attributeObj         */
 /*               and its id.  attributeObj should contain                */
 /*               the properties needed to be updated                     */
 /*               i.e. attributeObj = {name: "example", cost: 40.23}      */
@@ -59,7 +79,7 @@ function selectOne(_condition, _callBack) {
 function updateItem(_attributeObj, _id) {
 
 
-    db.Store.update(_attributeObj, { where: { id: _id } }).then(function (_data) {
+    db.User.update(_attributeObj, { where: { id: _id } }).then(function (_data) {
 
         console.log("update success");
     });
@@ -72,26 +92,15 @@ function updateItem(_attributeObj, _id) {
 /*                                                                 */
 /*      paramaters: _id                                            */
 /*                                                                 */
-/*      purpose: Delete an item in the store                       */
+/*      purpose: Delete a user                                     */
 /*                                                                 */
 /*******************************************************************/
 function deleteItem(_id) {
-    db.Store.destroy({ where: { id: _id } }).then(function (_data) {
+    db.User.destroy({ where: { id: _id } }).then(function (_data) {
         console.log("delete success.");
     });
 }
 
 
-/*******************************************************************/
-/*                                                                 */
-/*      function: AddToShoppingCart                                */
-/*                                                                 */
-/*      paramaters: _id                                            */
-/*                                                                 */
-/*      purpose: add an item from the store to the shopping cart   */
-/*                                                                 */
-/*******************************************************************/
-// TODO: define this function 
-function addToShoppingCart(_id) {
-}
+
 
