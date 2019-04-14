@@ -16,52 +16,45 @@ var db = require("../model");
 /*                                                                 */
 /*******************************************************************/
 function selectAll(_callBack) {
-    db.Store.findAll().then(function (_data) {
-    
-        _callBack(_data);
+    db.ShoppingCart.findAll().then(function (_data) {
+
+        // TODO: Im not sure this will work because it is async, need the server up to try it!!
+        var items = [];
+        for (var i = 0; i < _data.length; ++i) {
+
+            // find a store item based on the id in the shopping cart
+            db.StoreItem.findAll({ where: { id: _data[i].storeItemId } }).then(function (_data) {
+                _callBack(_data);
+            });
+
+        }
     });
+
 }
 
 
 /*******************************************************************/
 /*                                                                 */
-/*      function: selectOneByName                                  */
+/*      function: selectOne                                        */
 /*                                                                 */
-/*      paramaters: _itemName, _callBack                           */
+/*      paramaters: _condition, _callBack                          */
 /*                                                                 */
-/*      purpose: Select one of the items in the cart by its name   */
+/*      purpose: Select one a the shopping cart item by a          */
+/*              specified condition ( id: _id, name: _name)        */
 /*                                                                 */
 /*******************************************************************/
-function selectOneByName(_itemName, _callBack) {
+function selectOne(_condition, _callBack) {
 
-    db.Store.findAll({
-        where: {name: _itemName}
-    }).then(function (_data) { 
+    db.ShoppingCart.findAll({
+        where: _condition
+    }).then(function (_data) {
 
-        _callBack(_data);
+        // find a store item based on the id in the shopping cart
+        db.StoreItem.findAll({ where: {id: _data.storeItemId}}).then(function (_data) {
+            _callBack(_data);
+        });
     });
 }
-
-
-/*******************************************************************/
-/*                                                                 */
-/*      function: selectOneById                                    */
-/*                                                                 */
-/*      paramaters: _Id, _callBack                                 */
-/*                                                                 */
-/*      purpose: Select one of the items in the cart by its id     */
-/*                                                                 */
-/*******************************************************************/
-function selectOneById(_Id, _callBack) {
-
-    db.Store.findAll({
-        where: {id: _Id}
-    }).then(function (_data) { 
-
-        _callBack(_data);
-    });
-}
-
 
 /**************************************************************************/
 /*                                                                        */
@@ -78,7 +71,7 @@ function selectOneById(_Id, _callBack) {
 function updateItem(_attributeObj, _id) {
 
    
-    db.Store.update(_attributeObj, { where: {id: _id}}).then(function (_data) { 
+    db.ShoppingCart.update(_attributeObj, { where: {id: _id}}).then(function (_data) { 
 
         console.log("update success");
     });
@@ -95,7 +88,7 @@ function updateItem(_attributeObj, _id) {
 /*                                                                 */
 /*******************************************************************/
 function deleteItem(_id) {
-    db.Store.destroy({ where: {id: _id}}).then(function (_data) {
+    db.ShoppingCart.destroy({ where: {id: _id}}).then(function (_data) {
         console.log("delete success.");
 
     });
@@ -108,7 +101,7 @@ function deleteItem(_id) {
 /*                                                                 */
 /*      paramaters: _id                                            */
 /*                                                                 */
-/*      purpose: buy items from the shopping                       */
+/*      purpose: buy items from the shopping cart                  */
 /*                                                                 */
 /*******************************************************************/
 // TODO: define this function 
