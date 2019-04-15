@@ -12,7 +12,7 @@ module.exports = function (_sequelize, _Sequelize) {
             type: _Sequelize.INTEGER,
             allowNull: true
         },
-        CurUserId: {
+        curUserId: {
             type: _Sequelize.INTEGER,
             allowNull: false
         }
