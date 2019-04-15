@@ -2,7 +2,7 @@
 // =============================================================
 
 // Requiring our ShoppingCart model
-var shoppingCartController = require("../controller/shoppingCartController");
+var shoppingCartController = require("../controller/shopping-cart-controller");
 // Routes
 // =============================================================
 module.exports = function(app) {

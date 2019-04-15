@@ -1,6 +1,6 @@
 /**
  * 
- *      shopping-cart.js
+ *      shopping-cart-controller.js
  *  
  */
 
@@ -38,8 +38,10 @@ module.exports = {
     /*******************************************************************/
     selectAll: function (_callBack) {
         db.ShoppingCart.findAll().then(function (_data) {
-            _callBack(_data);
-            // // TODO: Im not sure this will work because it is async, need the server up to try it!!
+
+            
+            _callBack(_data[0].dataValues);
+            // TODO: Im not sure this will work because it is async, need the server up to try it!!
             // var items = [];
             // for (var i = 0; i < _data.length; ++i) {
 
