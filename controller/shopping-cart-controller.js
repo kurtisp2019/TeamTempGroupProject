@@ -6,6 +6,27 @@
 
 var db = require("../model");
 
+
+/*******************************************************************/
+/*                                                                 */
+/*      function: addShoppingCartItem                              */
+/*                                                                 */
+/*      paramaters: _userId, _storeItemId                          */
+/*                                                                 */
+/*      purpose: Add item to shopping cart                         */
+/*                                                                 */
+/*******************************************************************/
+function addShoppingCartItem(_userId, _storeItemId) {
+
+    // get the user Id
+    // get the product Id
+    db.ShoppingCart.Create({
+        storeItemId: _storeItemId,
+        userId: _userId
+    })
+}
+
+
 /*******************************************************************/
 /*                                                                 */
 /*      function: SelectALL                                        */
@@ -50,7 +71,7 @@ function selectOne(_condition, _callBack) {
     }).then(function (_data) {
 
         // find a store item based on the id in the shopping cart
-        db.StoreItem.findAll({ where: {id: _data.storeItemId}}).then(function (_data) {
+        db.StoreItem.findAll({ where: { id: _data.storeItemId } }).then(function (_data) {
             _callBack(_data);
         });
     });
@@ -70,8 +91,8 @@ function selectOne(_condition, _callBack) {
 /**************************************************************************/
 function updateItem(_attributeObj, _id) {
 
-   
-    db.ShoppingCart.update(_attributeObj, { where: {id: _id}}).then(function (_data) { 
+
+    db.ShoppingCart.update(_attributeObj, { where: { id: _id } }).then(function (_data) {
 
         console.log("update success");
     });
@@ -88,7 +109,7 @@ function updateItem(_attributeObj, _id) {
 /*                                                                 */
 /*******************************************************************/
 function deleteItem(_id) {
-    db.ShoppingCart.destroy({ where: {id: _id}}).then(function (_data) {
+    db.ShoppingCart.destroy({ where: { id: _id } }).then(function (_data) {
         console.log("delete success.");
 
     });
