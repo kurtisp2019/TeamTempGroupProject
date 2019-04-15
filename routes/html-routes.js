@@ -8,31 +8,31 @@ module.exports = function (app) {
 
     // index route loads view.handlebars
     app.get("/", function (req, res) {
-        res.sendFile(path.join(__dirname, "../views/home.handlebars"));
+        res.render("home.handlebars");
     });
 
     app.get("/accountpage", function (req, res) {
-        res.sendFile(path.join(__dirname, "../views/accountpage.handlebars"));
+        res.render("accountpage.handlebars");
     });
 
     app.get("/addproduct", function (req, res) {
-        res.sendFile(path.join(__dirname, "../views/addproduct.handlebars"));
+        res.render("addproduct.handlebars");
     });
 
     app.get("/login", function (req, res) {
-        res.sendFile(path.join(__dirname, "../views/login.handlebars"));
+        res.render("login.handlebars");
     });
 
     app.get("/register", function (req, res) {
-        res.sendFile(path.join(__dirname, "../views/register.handlebars"));
+        res.render("register.handlebars");
     });
 
     app.get("/checkout", function (req, res) {
-        res.sendFile(path.join(__dirname, "../views/checkout.handlebars"));
+        res.render("checkout.handlebars");
     });
 
     app.get("/shoppingcart", function (req, res) {
-        res.sendFile(path.join(__dirname, "../views/shoppingcart.handlebars"));
+        res.render("shoppingcart.handlebars");
     });
 
 };

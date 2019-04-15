@@ -28,14 +28,13 @@ module.exports = function (_sequelize, _Sequelize) {
         quantity: {
             type: _Sequelize.INTEGER,
             allowNull: false
-        },
-        timestamps: false,
-        //,
+        }//,
         // image: {
         //     type: _Sequelize.IMAGE,
         //     allowNull: true
         // }
-    });
+    }, {
+        timestamps: false});
     return StoreItem;
 }
 

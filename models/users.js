@@ -3,7 +3,6 @@
  *      user.js
  * 
  */
-
 module.exports = function (_sequelize, _Sequelize) {
 
     var User = _sequelize.define("User", {
@@ -22,8 +21,11 @@ module.exports = function (_sequelize, _Sequelize) {
                 len: [5]
             }
         },
-        timestamps: false
+        
 
+    },
+    {
+        timestamps: false
     });
 
     User.associate = function (_models) { 

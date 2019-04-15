@@ -2,8 +2,7 @@
 // =============================================================
 
 // Requiring our ShoppingCart model
-var db = require("../controller");
-
+var shoppingCartController = require("../controller/shoppingCartController");
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -11,10 +10,11 @@ module.exports = function(app) {
       // GET route for getting all of the posts
   app.get("/api/ShoppingCarts/", function(req, res) {
    
-    db.shoppingCartController.selectAll(function(_data){
-        console.log(_data);
-        res.status(200).end();
+    shoppingCartController.selectAll(function (_data) {
+      console.log("hello");
+        console.log(_data[0].dataValues);
     });
+    res.status(200).end();
   });
 
 }
