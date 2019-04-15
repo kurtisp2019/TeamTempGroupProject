@@ -10,7 +10,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-require("./routes")(app); // Routes need to be specified. One 'require' per route
+require("./routes/html-routes")(app); // Routes need to be specified. One 'require' per route
 
 db.sequelize.sync({ force: true }).then(function() {
     app.listen(PORT, function() {
