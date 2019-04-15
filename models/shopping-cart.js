@@ -18,8 +18,6 @@ module.exports = function (_sequelize, _Sequelize) {
         }
     }, {
         timestamps: false});
-<<<<<<< HEAD
-=======
 
     // ShoppingCart.associate = function (_models) {
 
@@ -29,7 +27,6 @@ module.exports = function (_sequelize, _Sequelize) {
     //         }
     //     });
     // }
->>>>>>> 6cbbb20c920d3cea7d27f82664a38ce45fc585eb
 
     return ShoppingCart;
 }

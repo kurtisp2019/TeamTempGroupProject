@@ -12,7 +12,7 @@ module.exports = function(app) {
    
     shoppingCartController.selectAll(function (_data) {
       console.log("hello");
-        console.log(_data[0].dataValues);
+        console.log(_data);
     });
     res.status(200).end();
   });
