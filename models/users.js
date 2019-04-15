@@ -21,7 +21,8 @@ module.exports = function (_sequelize, _Sequelize) {
             validate: {
                 len: [5]
             }
-        }
+        },
+        timestamps: false
 
     });
 

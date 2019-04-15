@@ -15,7 +15,8 @@ module.exports = function (_sequelize, _Sequelize) {
         curUserId: {
             type: _Sequelize.INTEGER,
             allowNull: false
-        }
+        },
+        timestamps: false,
     });
 
     ShoppingCart.associate = function (_models) { 
