@@ -11,6 +11,7 @@ module.exports = function(app) {
   app.get("/api/ShoppingCarts/", function(req, res) {
    
     shoppingCartController.selectAll(function (_data) {
+      
       console.log("hello");
         console.log(_data);
         

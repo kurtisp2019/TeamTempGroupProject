@@ -40,7 +40,7 @@ module.exports = {
         db.ShoppingCart.findAll().then(function (_data) {
 
             
-            _callBack(_data[0].dataValues);
+            _callBack(_data);
             // TODO: Im not sure this will work because it is async, need the server up to try it!!
             // var items = [];
             // for (var i = 0; i < _data.length; ++i) {
