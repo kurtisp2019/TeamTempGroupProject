@@ -21,16 +21,20 @@ module.exports = function (_sequelize, _Sequelize) {
             validate: {
                 len: [5]
             }
-        }
+        },
+        
 
+    },
+    {
+        timestamps: false
     });
 
-    User.associate = function (_models) { 
+    // User.associate = function (_models) { 
 
-        User.hasMany(_models.ShoppingCart, {
-            onDelete: "cascade"
-        });
-    }
+    //     User.hasMany(_models.ShoppingCart, {
+    //         onDelete: "cascade"
+    //     });
+    // }
 
     return User;
 }

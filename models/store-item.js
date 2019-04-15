@@ -33,7 +33,8 @@ module.exports = function (_sequelize, _Sequelize) {
         //     type: _Sequelize.IMAGE,
         //     allowNull: true
         // }
-    });
+    }, {
+        timestamps: false});
     return StoreItem;
 }
 
