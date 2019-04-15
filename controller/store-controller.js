@@ -6,6 +6,28 @@
 
 var db = require("../model");
 
+
+/*******************************************************************/
+/*                                                                 */
+/*      function: addItemToStore                                   */
+/*                                                                 */
+/*      paramaters: _storeItemObj                                  */
+/*                                                                 */
+/*      purpose: Add store item.                                   */
+/*                                                                 */
+/*******************************************************************/
+function addItemToStore(_storeItemObj) {
+
+    // get the user Id
+    // get the product Id
+    db.ShoppingCart.Create({
+        name: _storeItemObj.name,
+        description: _storeItemObj.description,
+        price: _storeItemObj.price,
+        quantity: _storeItemObj.quantity
+    });
+}
+
 /*******************************************************************/
 /*                                                                 */
 /*      function: SelectALL                                        */

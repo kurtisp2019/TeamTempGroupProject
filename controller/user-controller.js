@@ -8,6 +8,45 @@ var db = require("../model");
 
 /*******************************************************************/
 /*                                                                 */
+/*      function: addItemToStore                                   */
+/*                                                                 */
+/*      paramaters: _user                                          */
+/*                                                                 */
+/*      purpose: Add store item.                                   */
+/*                                                                 */
+/*******************************************************************/
+function addUser(_user) {
+
+    // get the user Id
+    // get the product Id
+    db.User.Create({
+        userName: _user.userName,
+        password: _user.password
+    });
+}
+
+
+/*******************************************************************/
+/*                                                                 */
+/*      function: addItemToShoppingCart                            */
+/*                                                                 */
+/*      paramaters: _userId, _storeItemId                          */
+/*                                                                 */
+/*      purpose: Add item to shopping cart                         */
+/*                                                                 */
+/*******************************************************************/
+function addItemToShoppingCart(_userId, _storeItemId) {
+
+    // get the user Id
+    // get the product Id
+    db.ShoppingCart.Create({
+        storeItemId: _storeItemId,
+        userId: _userId
+    });
+}
+
+/*******************************************************************/
+/*                                                                 */
 /*      function: SelectALL                                        */
 /*                                                                 */
 /*      paramaters: _callBack                                      */
