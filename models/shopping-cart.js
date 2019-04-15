@@ -10,17 +10,17 @@ module.exports = function (_sequelize, _Sequelize) {
         
         storeItemId: {
             type: _Sequelize.INTEGER,
-            allowNull: false
+            allowNull: true
         },
         userId: {
             type: _Sequelize.INTEGER,
-            allowNull: true
+            allowNull: false
         }
     });
 
     ShoppingCart.associate = function (_models) { 
 
-        ShoppingCart.belongsTo(models.User, {
+        ShoppingCart.belongsTo(_models.User, {
             foreignKey: {
                 allowNull: false
             }
