@@ -16,10 +16,10 @@ var db = require("../model");
 /*                                                                 */
 /*******************************************************************/
 function selectAll(_callBack) {
-    db.Store.findAll().then(function (_data) {
+	db.Store.findAll().then(function (_data) {
     
-        _callBack(_data);
-    });
+		_callBack(_data);
+	});
 }
 
 
@@ -34,12 +34,12 @@ function selectAll(_callBack) {
 /*******************************************************************/
 function selectOneByName(_itemName, _callBack) {
 
-    db.Store.findAll({
-        where: {name: _itemName}
-    }).then(function (_data) { 
+	db.Store.findAll({
+		where: {name: _itemName}
+	}).then(function (_data) { 
 
-        _callBack(_data);
-    });
+		_callBack(_data);
+	});
 }
 
 
@@ -54,12 +54,12 @@ function selectOneByName(_itemName, _callBack) {
 /*******************************************************************/
 function selectOneById(_Id, _callBack) {
 
-    db.Store.findAll({
-        where: {id: _Id}
-    }).then(function (_data) { 
+	db.Store.findAll({
+		where: {id: _Id}
+	}).then(function (_data) { 
 
-        _callBack(_data);
-    });
+		_callBack(_data);
+	});
 }
 
 
@@ -78,10 +78,10 @@ function selectOneById(_Id, _callBack) {
 function updateItem(_attributeObj, _id) {
 
    
-    db.Store.update(_attributeObj, { where: {id: _id}}).then(function (_data) { 
+	db.Store.update(_attributeObj, { where: {id: _id}}).then(function (_data) { 
 
-        console.log("update success");
-    });
+		console.log("update success");
+	});
 }
 
 
@@ -95,10 +95,10 @@ function updateItem(_attributeObj, _id) {
 /*                                                                 */
 /*******************************************************************/
 function deleteItem(_id) {
-    db.Store.destroy({ where: {id: _id}}).then(function (_data) {
-        console.log("delete success.");
+	db.Store.destroy({ where: {id: _id}}).then(function (_data) {
+		console.log("delete success.");
 
-    });
+	});
 }
 
 
