@@ -21,40 +21,36 @@ module.exports = function (app) {
     });
     res.status(200).end();
   });
-  //Add Shopping Cart Item
-  app.get("/api/AddCartItem/", function (req, res) {
 
-    shoppingCartController.addShoppingCartItem(function (_data) {
-      console.log("MADE IT: /api/AddCartItem/");
-      console.log(_data);
-    });
+  //Add Shopping Cart Item
+  app.post("/api/AddCartItem/", function (req, res) {
+
+    shoppingCartController.addShoppingCartItem(req.body.curUserId, req.body.storeItemId);
     res.status(200).end();
   });
+
   // Select one item in cart
   app.get("/api/SelectCartItem/", function (req, res) {
 
-    shoppingCartController.selectOne(function (_data) {
+    shoppingCartController.selectOne({id: 1}, function (_data) {
       console.log("MADE IT: /api/SelectCartItem/");
       console.log(_data);
     });
     res.status(200).end();
   });
-  //Update Item
-  app.get("/api/UpdateCartItem/", function (req, res) {
 
-    shoppingCartController.updateItem(function (_data) {
-      console.log("MADE IT: api/UpdateCartItem/");
-      console.log(_data);
-    });
+  //Update Item
+  app.put("/api/UpdateCartItem/:id", function (req, res) {
+
+
+    shoppingCartController.updateItem({curUserId: 101011}, req.params.id);
     res.status(200).end();
   });
-  // Delete Item
-  app.get("/api/DeleteCartItem/", function (req, res) {
 
-    shoppingCartController.deleteItem(function (_data) {
-      console.log("MADE IT: /api/DeleteCartItem/");
-      console.log(_data);
-    });
+  // Delete Item
+  app.delete("/api/DeleteCartItem/", function (req, res) {
+
+    shoppingCartController.deleteItem(3);
     res.status(200).end();
   });
 

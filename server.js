@@ -11,7 +11,14 @@ app.use(express.json());
 app.use(express.static("public"));
 
 var exphbr = require("express-handlebars");
+var express_handlebars_sections = require('express-handlebars-sections');
 app.engine("handlebars", exphbr({ defaultLayout: "main" }));
+app.engine('handlebars', exphbr({
+    defaultLayout: "main",
+    section: express_handlebars_sections()  // CONFIGURE 'express_handlebars_sections'
+ 
+    // properties used by express-handlebars configuration ...
+}));
 app.set("view engine", "handlebars");
 
 require("./routes/html-routes.js")(app); // Routes need to be specified. One 'require' per route

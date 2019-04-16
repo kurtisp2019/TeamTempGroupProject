@@ -1,0 +1,12 @@
+
+    $("#clickme").on("click", function () {
+
+        $.ajax({
+            method: "GET",
+            url: "/api/ShoppingCart/"
+        }).then(function (_response) {
+
+            console.log(_response);
+        });
+
+    });
