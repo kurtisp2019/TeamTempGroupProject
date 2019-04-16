@@ -3,6 +3,7 @@
 
 // Requiring our ShoppingCart model
 var shoppingCartController = require("../controller/shopping-cart-controller");
+var storeController = require("../controller/store-controller");
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -19,3 +20,11 @@ module.exports = function(app) {
   });
 
 }
+
+app.get("/", function(req, res) {
+
+  storeController.selectAll(function (_data) {
+    res.render("home.handlebars", { items: _data });
+
+  });
+});
