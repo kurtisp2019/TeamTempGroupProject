@@ -66,40 +66,35 @@ module.exports = function (app) {
     });
     res.status(200).end();
   });
-  //Add store item
-  app.get("/api/AddStoreItem/", function (req, res) {
 
-    storeController.addItemToStore(function (_data) {
-      console.log("MADE IT: api/AddStoreItem/");
-      console.log(_data);
-    });
+  //Add store item
+  app.post("/api/AddStoreItem/", function (req, res) {
+
+    storeController.addItemToStore({name: req.body.name, description: req.body.description, price: req.body.price, quantity: req.body.quantity});
     res.status(200).end();
   });
-  //Select Store Item
+
+  // Select one item in store
   app.get("/api/SelectStoreItem/", function (req, res) {
 
-    storeController.selectOne(function (_data) {
-      console.log("MADE IT: api/SelectStoreItem/");
+    storeController.selectOne({id: 1}, function (_data) {
+      console.log("MADE IT: /api/SelectStoreItem/");
       console.log(_data);
     });
     res.status(200).end();
   });
-  //Update Store Item
-  app.get("/api/UpdateStoreItem/", function (req, res) {
 
-    storeController.updateItem(function (_data) {
-      console.log("MADE IT: api/UpdateStoreItem/");
-      console.log(_data);
-    });
+  //Update Item
+  app.put("/api/UpdateStoreItem/:id", function (req, res) {
+
+    storeController.updateItem({name: "Tennis Ball", description: "Playing Tennis", price: 30, quantity: 50}, req.params.id);
     res.status(200).end();
   });
-  //Delete Store Item
-  app.get("/api/DeleteStoreItem/", function (req, res) {
 
-    storeController.deleteItem(function (_data) {
-      console.log("MADE IT: api/DeleteStoreItem/");
-      console.log(_data);
-    });
+  // Delete Item
+  app.delete("/api/DeleteStoreItem/", function (req, res) {
+
+    storeController.deleteItem(4);
     res.status(200).end();
   });
 
@@ -115,24 +110,24 @@ module.exports = function (app) {
     });
     res.status(200).end();
   });
-  //Add User
-  app.get("/api/AddUser/", function (req, res) {
 
-    userController.addUser(function (_data) {
-      console.log("MADE IT: /api/AddUser");
-      console.log(_data);
-    });
+  //Add User
+  app.post("/api/AddUser/", function (req, res) {
+
+    userController.addUser({userName: req.body.userName, password: req.body.password});
     res.status(200).end();
   });
+
   //Select User
   app.get("/api/SelectUser/", function (req, res) {
 
-    userController.selectOne(function (_data) {
+    userController.selectOne({id: 1},function (_data) {
       console.log("MADE IT: /api/SelectUser");
       console.log(_data);
     });
     res.status(200).end();
   });
+
   //Select User Shopping Cart
   app.get("/api/SelectUserShoppingCart/", function (req, res) {
 
@@ -142,22 +137,18 @@ module.exports = function (app) {
     });
     res.status(200).end();
   });
-  //Update User
-  app.get("/api/UpdateUser/", function (req, res) {
 
-    userController.updateItem(function (_data) {
-      console.log("MADE IT: /api/UpdateUser");
-      console.log(_data);
-    });
+  //Update User
+  app.put("/api/UpdateUser/:id", function (req, res) {
+
+    userController.updateItem({userName: "Chad", password: "abcd"}, req.params.id);
     res.status(200).end();
   });
-  //Delete User
-  app.get("/api/DeleteUser/", function (req, res) {
 
-    userController.deleteItem(function (_data) {
-      console.log("MADE IT: /api/DeleteUser");
-      console.log(_data);
-    });
+  //Delete User
+  app.delete("/api/DeleteUser/", function (req, res) {
+
+    userController.deleteItem(1);
     res.status(200).end();
-  }); 
+  });
 }
