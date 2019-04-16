@@ -4,6 +4,9 @@
 // Requiring our ShoppingCart model
 var shoppingCartController = require("../controller/shopping-cart-controller");
 var storeController = require("../controller/store-controller");
+var express = require("express");
+
+var app = express();
 // Routes
 // =============================================================
 module.exports = function(app) {
