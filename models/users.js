@@ -3,7 +3,6 @@
  *      user.js
  * 
  */
-
 module.exports = function (_sequelize, _Sequelize) {
 
     var User = _sequelize.define("User", {
