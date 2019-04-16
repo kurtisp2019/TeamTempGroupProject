@@ -20,10 +20,10 @@ module.exports = {
 
         // get the user Id
         // get the product Id
-        db.ShoppingCart.Create({
+        db.ShoppingCart.create({
             storeItemId: _storeItemId,
-            userId: _userId
-        })
+            curUserId: _userId
+        });
     },
 
 
@@ -40,7 +40,7 @@ module.exports = {
         db.ShoppingCart.findAll().then(function (_data) {
 
             
-            _callBack(_data[0].dataValues);
+            _callBack(_data);
             // TODO: Im not sure this will work because it is async, need the server up to try it!!
             // var items = [];
             // for (var i = 0; i < _data.length; ++i) {
@@ -72,10 +72,11 @@ module.exports = {
             where: _condition
         }).then(function (_data) {
 
+            _callBack(_data);
             // find a store item based on the id in the shopping cart
-            db.StoreItem.findAll({ where: { id: _data.storeItemId } }).then(function (_data) {
-                _callBack(_data);
-            });
+            // db.StoreItem.findAll({ where: _condition }).then(function (_data) {
+            //     _callBack(_data);
+            // });
         });
     },
 
@@ -92,7 +93,6 @@ module.exports = {
     /*                                                                        */
     /**************************************************************************/
     updateItem: function (_attributeObj, _id) {
-
 
         db.ShoppingCart.update(_attributeObj, { where: { id: _id } }).then(function (_data) {
 
@@ -115,7 +115,7 @@ module.exports = {
             console.log("delete success.");
 
         });
-    },
+    }
 
 
     /*******************************************************************/
@@ -127,7 +127,7 @@ module.exports = {
     /*      purpose: buy items from the shopping cart                  */
     /*                                                                 */
     /*******************************************************************/
-    // TODO: define this function 
-    checkOut: function (_id) {
-    }
+    // // TODO: define this function 
+    // checkOut: function (_id) {
+    // }
 }

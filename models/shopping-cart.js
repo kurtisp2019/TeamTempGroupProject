@@ -3,7 +3,6 @@
  *      shopping-cart.js
  * 
  */
-
 module.exports = function (_sequelize, _Sequelize) {
 
     var ShoppingCart = _sequelize.define("ShoppingCart", {

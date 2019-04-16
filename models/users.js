@@ -3,7 +3,6 @@
  *      user.js
  * 
  */
-
 module.exports = function (_sequelize, _Sequelize) {
 
     var User = _sequelize.define("User", {
@@ -11,18 +10,17 @@ module.exports = function (_sequelize, _Sequelize) {
         userName: {
             type: _Sequelize.STRING,
             allowNull: false,
-            validate: {
-                len: [5]
-            }
+            // validate: {
+            //     len: [5]
+            // }
         },
         password: {
             type: _Sequelize.STRING,
             allowNull: false,
-            validate: {
-                len: [5]
-            }
+            // validate: {
+            //     len: [5]
+            // }
         },
-        
 
     },
     {

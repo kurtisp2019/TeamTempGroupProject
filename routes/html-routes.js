@@ -1,6 +1,10 @@
 // Dependencies
 var path = require("path");
 
+var shoppingCartController = require("../controller/shopping-cart-controller");
+var storeController = require("../controller/store-controller");
+var userController = require("../controller/user-controller");
+
 //Routes
 module.exports = function (app) {
 
@@ -8,11 +12,16 @@ module.exports = function (app) {
 
     // index route loads view.handlebars
     app.get("/", function (req, res) {
-        res.render("home.handlebars");
+       
+        // render the home page plus the data
+        userController.selectAll(function (_data) { 
+           // console.log(_data);
+            res.render("home.handlebars", { items: _data });
+         });
     });
 
     app.get("/accountpage", function (req, res) {
-        res.render("accountpage.handlebars");
+        res.render("login.handlebars");
     });
 
     app.get("/addproduct", function (req, res) {
@@ -32,7 +41,14 @@ module.exports = function (app) {
     });
 
     app.get("/shoppingcart", function (req, res) {
-        res.render("shoppingcart.handlebars");
+
+         // get data for the home page
+         
+         shoppingCartController.selectAll(function (_data) { 
+            res.render("shoppingcart.handlebars", _data);
+         });
+         
+        
     });
 
 };

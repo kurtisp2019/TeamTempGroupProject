@@ -1,21 +1,257 @@
 <p>This</p>
-<button id="clickme">click</button>
-<script
-  src="https://code.jquery.com/jquery-3.4.0.min.js"
-  integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
-  crossorigin="anonymous"></script>
+<hr>
+<h3>Shopping-Cart-Controller</h3>
+<button id="selectShoppingCartItems">Select Shopping Cart Items</button>
+<button id="addOneShoppingCartItem">Add one Shopping Cart item</button>
+<button id="selectOneShoppingCartItem">Select One Shopping Cart Item</button>
+<button id="updateShoppingCartItem">Update Shopping Cart Item</button>
+<button id="deleteShoppingCartItem">Delete Shopping Cart Item</button>
+<hr>
+
+<h3>Store-Controller</h3>
+<button id="selectStoreItems">Select Store Items</button>
+<button id="addOneStoreItem">Add one Shop item</button>
+<button id="selectOneStoreItem">Select One Store Item</button>
+<button id="updateStoreItem">Update Store Item</button>
+<button id="deleteStoreItem">Delete Store Item</button>
+<hr>
+
+<h3>User-Controller</h3>
+<button id="selectUsers">Select Users</button>
+<button id="addOneUser">Add a User</button>
+<button id="selectOneUser">Select One User</button>
+<button id="updateUser">Update User</button>
+<button id="deleteUser">Delete User</button>
+<hr>
+
+
+<ul>
+    {{#each items}}
+    <li>
+        <p> store item: {{this.id}}</p>
+    </li>
+    {{/each}}
+</ul>
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"
+    integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
 <script>
-    
 
-    $("#clickme").on("click", function(){
+    //Select All ShoppingCart Items
+    $("#selectShoppingCartItems").on("click", function () {
 
-            $.ajax({
-                method: "GET",
-                url: "/api/ShoppingCarts/"
-            }).then(function(_response){
+        $.ajax({
+            method: "GET",
+            url: "/api/ShoppingCart/"
+        }).then(function (_response) {
 
-                console.log(_response);
-            });
-
+            console.log(_response);
         });
-</script> 
+
+    });
+
+    // Add one shopping cart item
+    $("#addOneShoppingCartItem").on("click", function () {
+
+        $.ajax({
+            method: "POST",
+            url: "/api/AddCartItem/",
+            data: {
+                storeItemId: 33333,
+                curUserId: 333333
+            }
+        }).then(function (_response) {
+
+            console.log(_response);
+        });
+    });
+
+    //  Select One Shopping cart Item
+    $("#selectOneShoppingCartItem").on("click", function () {
+
+        $.ajax({
+            method: "GET",
+            url: "/api/SelectCartItem/",
+            data: {}
+        }).then(function (_response) {
+
+            console.log(_response);
+        });
+    });
+
+    //Update shopping cart item
+    $("#updateShoppingCartItem").on("click", function () {
+
+        $.ajax({
+            method: "PUT",
+            url: "/api/UpdateCartItem/1",
+            data: {
+                storeItemId: 55555555,
+                curUserId: 555555555
+            }
+        }).then(function (_response) {
+
+            console.log(_response);
+        });
+    });
+
+    //Delete shopping cart item
+    $("#deleteShoppingCartItem").on("click", function () {
+
+        $.ajax({
+            method: "DELETE",
+            url: "/api/deleteCartItem/"
+        }).then(function (_response) {
+
+            console.log(_response);
+        });
+    });
+
+    //Store-Controller route (Select All)
+    $("#selectStoreItems").on("click", function () {
+
+        $.ajax({
+            method: "GET",
+            url: "/api/Store/"
+        }).then(function (_response) {
+
+            console.log(_response);
+        });
+
+    });
+
+    // Add one store item
+    $("#addOneStoreItem").on("click", function () {
+
+        $.ajax({
+            method: "POST",
+            url: "/api/AddStoreItem/",
+            data: {
+                name: "ball",
+                description: "to play with",
+                price: 12.50,
+                quantity: 9
+            }
+        }).then(function (_response) {
+
+            console.log(_response);
+        });
+    });
+
+    //  Select One Store Item
+    $("#selectOneStoreItem").on("click", function () {
+
+        $.ajax({
+            method: "GET",
+            url: "/api/SelectStoreItem/",
+            data: {}
+        }).then(function (_response) {
+
+            console.log(_response);
+        });
+    });
+
+    //Update Store item
+    $("#updateStoreItem").on("click", function () {
+
+        $.ajax({
+            method: "PUT",
+            url: "/api/UpdateStoreItem/2",
+            data: {
+                name: "h",
+                description: "y",
+                price: 1,
+                quantity: 1
+            }
+        }).then(function (_response) {
+
+            console.log(_response);
+        });
+    });
+
+    //Delete Store item
+    $("#deleteStoreItem").on("click", function () {
+
+        $.ajax({
+            method: "DELETE",
+            url: "/api/deletestoreItem/"
+        }).then(function (_response) {
+
+            console.log(_response);
+        });
+    });
+
+    // Select Users
+    $("#selectUsers").on("click", function () {
+
+        $.ajax({
+            method: "GET",
+            url: "/api/users/"
+        }).then(function (_response) {
+
+            console.log(_response);
+        });
+    });
+
+
+    // Add one store item
+    $("#addOneUser").on("click", function () {
+
+        $.ajax({
+            method: "POST",
+            url: "/api/AddUser/",
+            data: {
+                userName: "Kurt",
+                password: "789"
+            }
+        }).then(function (_response) {
+
+            console.log(_response);
+        });
+    });
+
+    //  Select One User
+    $("#selectOneUser").on("click", function () {
+
+        $.ajax({
+            method: "GET",
+            url: "/api/SelectUser/",
+            data: {}
+        }).then(function (_response) {
+
+            console.log(_response);
+        });
+    });
+
+    //Update User
+    $("#updateUser").on("click", function () {
+
+        $.ajax({
+            method: "PUT",
+            url: "/api/UpdateUser/2",
+            data: {
+                userName: "Chad",
+                password: "56765"
+            }
+        }).then(function (_response) {
+
+            console.log(_response);
+        });
+    });
+
+    //Delete User
+    $("#deleteUser").on("click", function () {
+
+        $.ajax({
+            method: "DELETE",
+            url: "/api/deleteUser/"
+        }).then(function (_response) {
+
+            console.log(_response);
+        });
+    });
+
+
+</script>
