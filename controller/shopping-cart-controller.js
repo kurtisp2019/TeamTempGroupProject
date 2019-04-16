@@ -115,7 +115,7 @@ module.exports = {
             console.log("delete success.");
 
         });
-    },
+    }
 
 
     /*******************************************************************/
@@ -127,7 +127,7 @@ module.exports = {
     /*      purpose: buy items from the shopping cart                  */
     /*                                                                 */
     /*******************************************************************/
-    // TODO: define this function 
-    checkOut: function (_id) {
-    }
+    // // TODO: define this function 
+    // checkOut: function (_id) {
+    // }
 }
