@@ -2,6 +2,8 @@
 var path = require("path");
 
 var shoppingCartController = require("../controller/shopping-cart-controller");
+var storeController = require("../controller/store-controller");
+var userController = require("../controller/user-controller");
 
 //Routes
 module.exports = function (app) {
@@ -12,11 +14,10 @@ module.exports = function (app) {
     app.get("/", function (req, res) {
        
         // render the home page plus the data
-        shoppingCartController.selectAll(function (_data) { 
+        userController.selectAll(function (_data) { 
            // console.log(_data);
             res.render("home.handlebars", { items: _data });
          });
-        // res.render("home.handlebars");
     });
 
     app.get("/accountpage", function (req, res) {
