@@ -20,7 +20,7 @@ module.exports = function (app) {
     });
 
     app.get("/accountpage", function (req, res) {
-        res.render("accountpage.handlebars");
+        res.render("login.handlebars");
     });
 
     app.get("/addproduct", function (req, res) {
