@@ -10,7 +10,8 @@ $(document).ready(function() {
                 name: $("#name").val().trim(),
                 description: $("#description").val().trim(),
                 price: $("#price").val().trim(),
-                quantity: $("#quantity").val().trim()
+                quantity: $("#quantity").val().trim(),
+                image: $("#image").val().trim()
             }
         }).then(function (_response) {
     

@@ -24,7 +24,8 @@ module.exports = {
             name: _storeItemObj.name,
             description: _storeItemObj.description,
             price: _storeItemObj.price,
-            quantity: _storeItemObj.quantity
+            quantity: _storeItemObj.quantity,
+            image: _storeItemObj.image
         });
     },
 

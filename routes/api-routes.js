@@ -73,7 +73,7 @@ module.exports = function (app) {
   //Add store item
   app.post("/api/AddStoreItem/", function (req, res) {
 
-    storeController.addItemToStore({name: req.body.name, description: req.body.description, price: req.body.price, quantity: req.body.quantity});
+    storeController.addItemToStore({name: req.body.name, description: req.body.description, price: req.body.price, quantity: req.body.quantity, image: req.body.image});
     res.status(200).end();
   });
 
