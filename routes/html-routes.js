@@ -20,35 +20,48 @@ module.exports = function (app) {
          });
     });
 
-    app.get("/accountpage", function (req, res) {
+    app.get("/index.handlebars", function (req, res) {
+       
+        // render the home page plus the data
+        storeController.selectAll(function (_data) { 
+           // console.log(_data);
+            res.render("index.handlebars", { items1: [_data[0], _data[1], _data[2], _data[3], _data[4], _data[5], _data[6], _data[7]], items2: [_data[8], _data[9], _data[10], _data[11], _data[12], _data[13], _data[14], _data[15]] });
+         });
+    });
+
+    app.get("/confirmation.handlebars", function (req, res) {
+        res.render("confirmation.handlebars");
+    });
+
+    app.get("/contact.handlebars", function (req, res) {
+        res.render("contact.handlebars");
+    });
+
+    app.get("/login.handlebars", function (req, res) {
         res.render("login.handlebars");
     });
 
-    app.get("/addproduct", function (req, res) {
-        res.render("addproduct.handlebars");
-    });
-
-    app.get("/login", function (req, res) {
-        res.render("login.handlebars");
-    });
-
-    app.get("/register", function (req, res) {
-        res.render("register.handlebars");
-    });
-
-    app.get("/checkout", function (req, res) {
+    app.get("/checkout.handlebars", function (req, res) {
         res.render("checkout.handlebars");
     });
 
-    app.get("/shoppingcart", function (req, res) {
+    app.get("/cart.handlebars", function (req, res) {
+        res.render("cart.handlebars");
+    });
 
-         // get data for the home page
+    app.get("/items.handlebars", function (req, res) {
+        res.render("items.handlebars");
+    });
+
+    // app.get("/shoppingcart", function (req, res) {
+
+    //      // get data for the home page
          
-         shoppingCartController.selectAll(function (_data) { 
-            res.render("shoppingcart.handlebars", _data);
-         });
+    //      shoppingCartController.selectAll(function (_data) { 
+    //         res.render("shoppingcart.handlebars", _data);
+    //      });
          
         
-    });
+    // });
 
 };
