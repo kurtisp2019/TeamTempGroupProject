@@ -53,6 +53,12 @@ module.exports = function (app) {
         res.render("items.handlebars");
     });
 
+    app.get("/home.handlebars", function (req, res) {
+        storeController.selectAll(function (_data) {
+            res.render("home.handlebars", { items: _data});
+        });
+    });
+
     // app.get("/shoppingcart", function (req, res) {
 
     //      // get data for the home page
