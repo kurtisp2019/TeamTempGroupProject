@@ -25,6 +25,8 @@ module.exports = {
             description: _storeItemObj.description,
             price: _storeItemObj.price,
             quantity: _storeItemObj.quantity
+        }).then(function(result) {
+            res.json(result);
         });
     },
 
