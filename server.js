@@ -1,4 +1,6 @@
 var express = require("express");
+var express_handlebars = require("express-handlebars");
+var express_handlebars_sections = require("express-handlebars-sections");
 
 var app = express();
 var PORT = process.env.PORT || 8080;
@@ -12,10 +14,16 @@ app.use(express.static("public"));
 
 var exphbr = require("express-handlebars");
 var express_handlebars_sections = require('express-handlebars-sections');
-app.engine("handlebars", exphbr({ defaultLayout: "main" }));
 app.engine('handlebars', exphbr({
     defaultLayout: "main",
-    section: express_handlebars_sections()  // CONFIGURE 'express_handlebars_sections'
+    section: express_handlebars_sections(),  // CONFIGURE 'express_handlebars_sections'
+    helpers:{
+        section:function(name, options){
+            if(!this._sections){this._sections = {}};
+            this._sections[name] = options.fn(this);
+            return null;
+        }
+    }
  
     // properties used by express-handlebars configuration ...
 }));

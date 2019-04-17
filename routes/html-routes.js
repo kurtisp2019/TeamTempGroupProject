@@ -14,9 +14,9 @@ module.exports = function (app) {
     app.get("/", function (req, res) {
        
         // render the home page plus the data
-        userController.selectAll(function (_data) { 
+        storeController.selectAll(function (_data) { 
            // console.log(_data);
-            res.render("home.handlebars", { items: _data });
+            res.render("index.handlebars", { items1: [_data[0], _data[1], _data[2], _data[3], _data[4], _data[5], _data[6], _data[7]], items2: [_data[8], _data[9], _data[10], _data[11], _data[12], _data[13], _data[14], _data[15]] });
          });
     });
 
