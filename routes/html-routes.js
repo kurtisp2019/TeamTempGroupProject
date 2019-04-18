@@ -19,6 +19,11 @@ module.exports = function (app) {
         // res.render("home.handlebars");
     });
 
+    app.get("/test", function (_req, _res) {
+        
+        _res.render("test.handlebars");
+    });
+    
     app.get("/accountpage", function (req, res) {
         res.render("login.handlebars");
     });
