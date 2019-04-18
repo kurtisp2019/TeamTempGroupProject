@@ -17,10 +17,10 @@ module.exports = {
     /*                                                                 */
     /*******************************************************************/
     addUser: function (_user) {
-
+        console.log(_user);
         // get the user Id
         // get the product Id
-        db.User.Create({
+        db.User.create({
             userName: _user.userName,
             password: _user.password
         });

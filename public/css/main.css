@@ -43,6 +43,11 @@
 .gray-bg {
   background: #f9f9ff; }
 
+.image-standard {
+  width: 200px;
+  height: 175px;
+}
+
 /* Section title css
 ============================================================================================ */
 .section-title {

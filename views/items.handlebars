@@ -12,7 +12,7 @@
 	<!-- meta character set -->
 	<meta charset="UTF-8">
 	<!-- Site Title -->
-	<title>Karma Shop</title>
+	<title>eStore</title>
 
 	<!--
             CSS
@@ -95,10 +95,10 @@
 		<div class="container">
 			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
 				<div class="col-first">
-					<h1>Contact Us</h1>
+					<h1>Add an Item</h1>
 					<nav class="d-flex align-items-center">
-						<a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
-						<a href="category.html">Contact</a>
+						<a href="index.handlebars">Home<span class="lnr lnr-arrow-right"></span></a>
+						<a href="cart.handlebars">Cart</a>
 					</nav>
 				</div>
 			</div>
@@ -117,41 +117,44 @@
 					<div class="contact_info">
 						<div class="info_item">
 							<i class="lnr lnr-home"></i>
-							<h6>California, United States</h6>
-							<p>Santa monica bullevard</p>
+							<h6>Colorado, United States</h6>
+							<p>University of Denver</p>
 						</div>
 						<div class="info_item">
 							<i class="lnr lnr-phone-handset"></i>
-							<h6><a href="#">00 (440) 9865 562</a></h6>
-							<p>Mon to Fri 9am to 6 pm</p>
+							<h6><a href="#">(720)818-0285</a></h6>
+							<p>Mon-Fri: 10am-2:45pm</p>
 						</div>
 						<div class="info_item">
 							<i class="lnr lnr-envelope"></i>
-							<h6><a href="#">support@colorlib.com</a></h6>
+							<h6><a href="#">contact@eStore.com</a></h6>
 							<p>Send us your query anytime!</p>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-9">
-					<form class="row contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+					<form class="row contact_form" method="post" id="itemForm" novalidate="novalidate">
 						<div class="col-md-6">
 							<div class="form-group">
-								<input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'">
+								<input type="text" class="form-control" id="name" name="name" placeholder="Enter item name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter item name'">
 							</div>
 							<div class="form-group">
-								<input type="email" class="form-control" id="email" name="email" placeholder="Enter email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'">
+								<input type="number" class="form-control" id="price" name="price" placeholder="Enter item price" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter item price'">
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" id="subject" name="subject" placeholder="Enter Subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'">
+								<input type="number" class="form-control" id="quantity" name="quantity" placeholder="Enter quantity" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter quantity'">
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control" id="image" name="image" placeholder="Enter image URL" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter image URL'">
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<textarea class="form-control" name="message" id="message" rows="1" placeholder="Enter Message" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'"></textarea>
+								<textarea class="form-control" name="description" id="description" rows="1" placeholder="Description" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Description'"></textarea>
 							</div>
 						</div>
 						<div class="col-md-12 text-right">
-							<button type="submit" value="submit" class="primary-btn">Send Message</button>
+							<button type="submit" value="submit" id="addOneStoreItem" class="primary-btn">Add Item</button>
 						</div>
 					</form>
 				</div>
@@ -285,6 +288,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="js/nouislider.min.js"></script>
 	<script src="js/jquery.magnific-popup.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/items.js"></script>
 	<!--gmaps Js-->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
 	<script src="js/gmaps.min.js"></script>
